@@ -1,0 +1,6 @@
+sounddevice
+scipy
+whisper
+pandas
+numpy
+tensorflow
