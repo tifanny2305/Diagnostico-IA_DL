@@ -1,6 +1,6 @@
-sounddevice
-scipy
-whisper
-pandas
 numpy
-tensorflow
+pandas
+whisper
+scipy
+pvporcupine
+#sounddevice

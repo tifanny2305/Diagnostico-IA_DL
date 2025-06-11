@@ -1,8 +1,21 @@
-*.pkl
-*.h5
-*.csv
-*.zip
-*.mp4
-*.avi
+# Ignorar modelos grandes
+model/*.pt
+model/*.h5
+model/*.npy
+
+# Ignorar audios
+*.wav
+audio/
+
+# Ignorar cachés
 __pycache__/
-.DS_Store
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar entornos virtuales
+.venv/
+env/
+
+# Docker
+diagnostico-ia.tar

@@ -1,0 +1,36 @@
+# Archivos y carpetas de Python que no se deben copiar
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Entornos virtuales locales
+.venv/
+env/
+ENV/
+
+# Archivos temporales o de sistema
+*.log
+*.tmp
+*.ipynb
+.DS_Store
+
+# Archivos de Git
+.git/
+.gitignore
+
+# Audios temporales (pueden montarse externamente)
+audio/
+*.wav
+
+# Archivos de grabación en tiempo real (no se usan en Docker)
+voice/recorder.py
+voice/escucha_transcribe.py
+
+# Modelos grandes innecesarios
+model/sintomas_modelo.npy  # NO usado
+# (medium.pt puedes mantenerlo si no estás usando tiny.pt)
+
+# Archivos CSV innecesarios si no los usas (opcional, comenta si dudas)
+# model/enfermedades_traducidas.csv
+# model/dataset_completo_super_fusionado.csv
