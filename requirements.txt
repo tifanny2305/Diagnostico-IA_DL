@@ -1,3 +1,9 @@
+tensorflow
+numpy
+pandas
+whisper
+scipy
+pvporcupine
 numpy
 pandas
 whisper

@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-# Instalar dependencias del sistema
+# Instalar dependencias del sistema necesarias para audio y git
 RUN apt-get update && apt-get install -y \
     ffmpeg \
     libsndfile1 \
@@ -10,12 +10,18 @@ RUN apt-get update && apt-get install -y \
 # Crear carpeta de trabajo
 WORKDIR /app
 
-# Copiar todo el proyecto
+# Copiar el proyecto al contenedor
 COPY . /app
 
-# Instalar dependencias Python
+# Instalar dependencias de Python
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
 
-# Establecer comando por defecto
-CMD ["python", "main.py", "audio.wav"]
+# Instalar dependencias del proyecto + GraphQL (Strawberry)
+RUN pip install -r requirements.txt
+RUN pip install strawberry-graphql[fastapi] uvicorn
+
+# Exponer puerto (opcional pero recomendado)
+EXPOSE 8000
+
+# Comando por defecto: iniciar el servidor GraphQL
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
