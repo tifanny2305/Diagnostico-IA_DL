@@ -1,5 +1,6 @@
 import strawberry
 from strawberry.fastapi import GraphQLRouter
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from voice.transcriptor import transcribir_audio
 from symtoms.extractor import extraer_datos
@@ -29,4 +30,12 @@ class Mutation:
 schema = strawberry.Schema(query=Query, mutation=Mutation)
 
 app = FastAPI()
+# Habilitar CORS para todos los orígenes
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # ✅ permite cualquier origen
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(GraphQLRouter(schema), prefix="/graphql")
